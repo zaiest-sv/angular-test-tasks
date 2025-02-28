@@ -1,1 +1,16 @@
-<p>timezone works!</p>
+<p-card header="Current Date" class="timezone-card-container">
+    @if (timezoneData$ | async; as data) {
+        @if (data.loading) {
+            <p>Updating date...</p>
+        } @else if (data.error) {
+            <div class="error-container">
+                <p class="error-label">Error: </p>
+                <p class="error-message">{{ data.error }}</p>
+            </div>
+        } @else if (data.currentDateTime) {
+            <p class="current-date-time">{{ data.currentDateTime }}</p>
+        }
+    }
+
+    <p-button (click)="refreshDateTime()" [disabled]="(timezoneData$ | async)?.loading" label="Update Date" icon="pi pi-refresh" class="p-button-primary" />
+</p-card>
