@@ -5,7 +5,8 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { providePrimeNG } from "primeng/config";
 import Aura from '@primeng/themes/aura';
-import {definePreset} from "@primeng/themes";
+import { definePreset } from "@primeng/themes";
+import { provideHttpClient } from "@angular/common/http";
 
 const MyPreset = definePreset(Aura, {
     semantic: {
@@ -27,7 +28,9 @@ const MyPreset = definePreset(Aura, {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-      provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
+      provideZoneChangeDetection({ eventCoalescing: true }),
+      provideHttpClient(),
+      provideRouter(routes),
       provideAnimationsAsync(),
       providePrimeNG({
         theme: {
