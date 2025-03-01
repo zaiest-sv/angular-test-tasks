@@ -8,9 +8,15 @@
                 <p class="error-message">{{ data.error }}</p>
             </div>
         } @else if (data.currentDateTime) {
-            <p class="current-date-time">{{ data.currentDateTime }}</p>
+            <p class="current-date-time">{{ data.currentDateTime | date:'medium' }}</p>
         }
-    }
 
-    <p-button (click)="refreshDateTime()" [disabled]="(timezoneData$ | async)?.loading" label="Update Date" icon="pi pi-refresh" class="p-button-primary" />
+        <p-button
+                (click)="refreshDateTime()"
+                [disabled]="data.loading"
+                label="Update Date"
+                icon="pi pi-refresh"
+                class="p-button-primary"
+        />
+    }
 </p-card>

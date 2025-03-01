@@ -1,0 +1,190 @@
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+  max-width: 75rem;
+  background: #f8f8f8;
+
+  .booking-details {
+    display: flex;
+    align-items: center;
+
+    *:last-child {
+      margin-left: auto;
+    }
+
+    .booking-field {
+      padding: 1rem;
+      transition: background 0.3s ease;
+      border-radius: 0.5rem;
+      position: relative;
+
+      &:nth-child(1)::after,
+      &:nth-child(4)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 15%;
+        height: 70%;
+        width: 1px;
+        background-color: #e1e1e1;
+      }
+
+      .text-align-right {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+      }
+
+      .booking-destination,
+      .booking-date,
+      .booking-nights {
+        margin-top: 0.5rem;
+
+        input {
+          background: none;
+          border: none;
+          box-shadow: none;
+        }
+      }
+
+      .booking-destination-input {
+        width: 15rem;
+      }
+
+      .booking-room-label {
+        font-size: 0.75rem;
+        font-weight: bold;
+        margin-left: 0.5rem;
+        color: #002f7c;
+      }
+
+      .booking-date {
+        width: 8rem;
+      }
+
+      .guests-selector {
+        margin-top: 0.5rem;
+
+        button {
+          background: none;
+          border: none;
+          color: black;
+          width: 10rem;
+          padding: 0.5rem 0;
+
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      &:not(:last-child):focus-within {
+        background: #e1e1e1;
+      }
+    }
+
+    .booking-nights-container {
+      label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .booking-submit-btn {
+      background: none;
+      border: none;
+      width: 6rem;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      color: white;
+      background: #002b8c;
+
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: background 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background: #002067;
+      }
+
+      &:active {
+        background: #001d50;
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  @media (max-width: 66.25rem) {
+    .booking-details {
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .booking-submit-btn {
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 60.5rem) {
+    .booking-details {
+      .booking-field {
+        &:nth-child(1)::after,
+        &:nth-child(4)::after {
+          content: none;
+        }
+      }
+
+      .booking-destination-container {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 45rem) {
+    .booking-details {
+      .booking-field {
+        width: 50%;
+
+        label {
+          justify-content: left !important;
+        }
+
+        .guests-selector > button {
+          width: 100%;
+          justify-content: left;
+        }
+
+        .booking-date, .booking-nights {
+          width: 100%;
+        }
+      }
+
+      .booking-destination-container {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 30rem) {
+    .booking-details {
+      width: 100%;
+      .booking-field {
+        width: 100%;
+      }
+    }
+  }
+}
