@@ -1,5 +1,5 @@
-@import "../../node_modules/primeicons/primeicons.css";
-@import "./shared/booking-form.scss.scss";
+@use "../../node_modules/primeicons/primeicons.css";
+@use "./shared/booking-form.scss.scss";
 
 .popover-content {
   display: flex;
