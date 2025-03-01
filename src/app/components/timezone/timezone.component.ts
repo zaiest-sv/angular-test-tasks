@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {TimezoneService} from "../../core/shared/timezone.service";
+import {TimezoneService} from "../../shared/services/timezone.service";
 import {Card} from "primeng/card";
 import {AsyncPipe, DatePipe} from "@angular/common";
 import {Button} from "primeng/button";
