@@ -1,12 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import {Menubar} from "primeng/menubar";
 import {MenuItem} from "primeng/api";
-import {JsonPipe} from "@angular/common";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Menubar, RouterLink, JsonPipe],
+  imports: [RouterOutlet, Menubar, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -14,7 +13,7 @@ export class AppComponent implements OnInit {
   public title = 'angular-test-tasks';
   public items: MenuItem[] | undefined;
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit() {
     this.items = [
@@ -28,31 +27,17 @@ export class AppComponent implements OnInit {
         icon: 'pi pi-th-large',
         items: [
           {
-            label: 'Timezone',
+            label: 'Timezone (Task 1)',
             icon: 'pi pi-calendar',
             route: '/timezone'
           },
           {
             icon: 'pi pi-search',
-            label: 'Search Form',
+            label: 'Search Form (Task 2)',
             route: '/search-form'
           }
         ]
       },
-      {
-        label: 'External',
-        icon: 'pi pi-server',
-        items: [
-          {
-            label: 'Angular',
-            url: 'https://angular.io/'
-          },
-          {
-            label: 'Vite.js',
-            url: 'https://vitejs.dev/'
-          }
-        ]
-      }
     ];
   }
 }

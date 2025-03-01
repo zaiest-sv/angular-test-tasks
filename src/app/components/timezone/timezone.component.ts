@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {TimezoneService} from "../../core/shared/timezone.service";
 import {Card} from "primeng/card";
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, DatePipe} from "@angular/common";
 import {Button} from "primeng/button";
 import {combineLatest, map, Observable} from "rxjs";
 
@@ -17,9 +17,11 @@ interface TimezoneData {
     Card,
     AsyncPipe,
     Button,
+    DatePipe,
   ],
   templateUrl: './timezone.component.html',
-  styleUrl: './timezone.component.scss'
+  styleUrl: './timezone.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimezoneComponent implements OnInit {
   protected timezoneData$: Observable<TimezoneData> | undefined;

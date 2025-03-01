@@ -1,0 +1,25 @@
+@import "../../node_modules/primeicons/primeicons.css";
+@import "./shared/booking-form.scss.scss";
+
+.popover-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  .popover-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1rem;
+
+    input {
+      width: 3rem;
+    }
+  }
+}
+
+.p-datepicker {
+  input {
+    padding: 0.5rem 0;
+  }
+}
