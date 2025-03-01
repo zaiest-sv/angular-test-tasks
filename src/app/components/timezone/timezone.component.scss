@@ -1,0 +1,18 @@
+
+.timezone-card-container {
+  padding: 0 1rem;
+
+  .error-container {
+    .error-label, .error-message {
+      color: red;
+    }
+
+    .error-label {
+      font-weight: bold;
+    }
+  }
+
+  .current-date-time {
+    font-weight: bold;
+  }
+}

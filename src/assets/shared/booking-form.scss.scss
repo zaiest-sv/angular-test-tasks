@@ -1,0 +1,58 @@
+.booking-form {
+  .booking-nights > p-inputnumber {
+    .p-inputnumber-button {
+      padding: 0;
+      margin: 0;
+      width: 1.5rem;
+    }
+
+    input {
+      width: 3.2rem;
+    }
+  }
+
+  .booking-field {
+    .booking-destination,
+    .booking-date,
+    .booking-nights {
+      input, button {
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .booking-nights {
+    .pi-plus, .pi-minus {
+      border-radius: 50%;
+      border: 1px solid #94a3b8;
+      padding: 0.25rem;
+    }
+
+    .p-inputnumber-input {
+      text-align: center;
+    }
+  }
+
+  .text-align-center {
+    width: 100%;
+    text-align: center;
+  }
+
+  .p-datepicker {
+    width: 100%;
+
+    .p-datepicker-input-icon-container {
+      inset-inline-end: 0 !important;
+    }
+  }
+
+  .p-inputicon:first-child {
+    inset-inline-start: 0 !important;
+  }
+
+  .p-inputtext:not(:first-child) {
+    padding-inline-start: 1.5rem !important;
+  }
+}

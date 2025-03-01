@@ -1,0 +1,76 @@
+<section class="booking-form">
+    <div class="booking-details">
+        <div class="booking-field booking-destination-container">
+            <label for="destination">Куди вирушаєте?</label>
+
+            <div class="booking-destination">
+                <p-iconfield>
+                    <p-inputicon styleClass="pi pi-search" />
+                    <input class="booking-destination-input" id="destination" type="text" pInputText placeholder="(Країна / Місто / Готель)" />
+                </p-iconfield>
+            </div>
+        </div>
+
+        <div class="booking-field">
+            <label for="checkin-date">Дата заїзду</label>
+
+            <div class="booking-date">
+                <p-datepicker inputId="checkin-date" [(ngModel)]="dateOfArrival" placeholder="Виберіть дату" showIcon iconDisplay="input"></p-datepicker>
+            </div>
+        </div>
+
+        <div class="booking-field booking-nights-container">
+            <label for="nights">Ночей</label>
+
+            <div class="booking-nights">
+                <p-inputnumber id="nights" [(ngModel)]="numberOfNights" [min]="1" [max]="999" [showButtons]="true" buttonLayout="horizontal" spinnerMode="horizontal" inputId="horizontal">
+                    <ng-template #incrementbuttonicon>
+                        <span class="pi pi-plus"></span>
+                    </ng-template>
+                    <ng-template #decrementbuttonicon>
+                        <span class="pi pi-minus"></span>
+                    </ng-template>
+                </p-inputnumber>
+            </div>
+        </div>
+
+        <div class="booking-field">
+            <label class="text-align-right" for="checkout-date">Дата виїзду</label>
+
+            <div class="booking-date">
+                <p-datepicker inputId="checkout-date" [(ngModel)]="dateOfDeparture" placeholder="Виберіть дату" showIcon iconDisplay="input"></p-datepicker>
+            </div>
+        </div>
+
+        <div class="booking-field">
+            <label>Гості</label>
+            <span class="booking-room-label">{{ rooms }} номер</span>
+
+            <div class="booking-guests">
+                <div class="guests-selector">
+                    <p-popover #guestPopover>
+                        <div class="popover-content">
+                            <div class="popover-item">
+                                <label>Дорослі</label>
+                                <input type="number" [min]="1" [(ngModel)]="adults">
+                            </div>
+                            <div class="popover-item">
+                                <label>Діти</label>
+                                <input type="number" [min]="0" [(ngModel)]="children">
+                            </div>
+                            <div class="popover-item">
+                                <label>Кількість номерів</label>
+                                <input type="number" [min]="1" [(ngModel)]="rooms">
+                            </div>
+                        </div>
+                    </p-popover>
+
+                    <button pButton (click)="guestPopover.toggle($event)">{{ getGuestSummary() }}</button>
+                </div>
+            </div>
+        </div>
+
+        <button class="booking-submit-btn">Знайти</button>
+
+    </div>
+</section>
