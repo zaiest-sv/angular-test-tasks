@@ -1,15 +1,10 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
 import {TimezoneService} from "../../shared/services/timezone.service";
 import {Card} from "primeng/card";
 import {AsyncPipe, DatePipe} from "@angular/common";
 import {Button} from "primeng/button";
-import {combineLatest, map, Observable} from "rxjs";
-
-interface TimezoneData {
-  currentDateTime: Date | string | null;
-  loading: boolean;
-  error: string | null;
-}
+import {Observable} from "rxjs";
+import {TimezoneData} from "../../shared/interfaces/timezone-data.interface";
 
 @Component({
   selector: 'app-timezone',
@@ -23,28 +18,13 @@ interface TimezoneData {
   styleUrl: './timezone.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TimezoneComponent implements OnInit {
-  protected timezoneData$: Observable<TimezoneData> | undefined;
+export class TimezoneComponent {
+  private timezoneService = inject(TimezoneService);
+  protected timezoneData$: Observable<TimezoneData> = this.timezoneService.dateTimeData$;
 
-  constructor(private timezoneService: TimezoneService) {}
-
-  ngOnInit() {
-    this.refreshDateTime();
-
-    this.timezoneData$ = combineLatest([
-      this.timezoneService.currentDateTime$,
-      this.timezoneService.dateTimeLoading$,
-      this.timezoneService.dateTimeError$
-    ]).pipe(
-        map(([currentDateTime, loading, error]) => ({
-          currentDateTime,
-          loading,
-          error
-        }))
-    );
-  }
+  constructor() {}
 
   protected refreshDateTime(): void {
-    this.timezoneService.updateDateTime();
+    this.timezoneService.refreshDateTime();
   }
 }
